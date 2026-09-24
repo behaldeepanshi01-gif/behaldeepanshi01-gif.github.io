@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Deepanshi Behal, revenue and hospitality analytics. Career journey, dashboards and projects in SQL, Tableau, Power BI, R and Python.">
+<meta property="og:title" content="Deepanshi Behal · Revenue & Hospitality Analytics">
+<meta property="og:description" content="Career journey, revenue dashboards and hotel analytics projects.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%23F2ECDC' stroke='%231A2B47' stroke-width='5'/%3E%3Ctext x='32' y='41' font-family='Arial' font-weight='800' font-size='24' text-anchor='middle' fill='%231A2B47'%3EDB%3C/text%3E%3C/svg%3E">
+<title>Deepanshi Behal · Revenue & Hospitality Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --sage:#DCEBE6; --sage-2:#C3DCD5; --sage-deep:#2F6B64;
+  --char:#15312F; --char-2:#1C3D3A; --line:#315652;
+  --ivory:#F4F0E6; --muted:#D6D0C2; --brass:#DDB56E; --ink:#1B1F1D;
+  --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --body:Manrope, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--char);color:var(--ivory);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+h1,h2,h3,p{margin:0}
+h1,h2{text-wrap:balance}
+
+/* film grain + fine diagonal weave, kept light so text stays sharp */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:
+    repeating-linear-gradient(135deg, rgba(0,0,0,.05) 0 1px, transparent 1px 5px),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity:.18;mix-blend-mode:multiply}
+
+/* top bar */
+.bar{position:fixed;left:0;right:0;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:calc(14px + env(safe-area-inset-top,0px)) 20px 14px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;background:rgba(18,44,42,.92);
+  color:var(--ivory);text-decoration:none;font-size:14px;font-weight:600;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pill:hover{background:#1f4a46}
+.bar .who{display:flex;flex-direction:column;line-height:1.25;gap:2px;padding:10px 16px;border-radius:16px;background:rgba(18,44,42,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.bar .who b{font-size:15px}
+.bar .who span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E4DFD3}
+.bar nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+
+/* ---------- JOURNEY (hero + résumé) ---------- */
+.journey{position:relative;background-color:var(--sage);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380' viewBox='0 0 380 380'%3E%3Cg fill='none' stroke='%231F4F4B' stroke-opacity='0.22' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate(30 40) rotate(-8)'%3E%3Cpath d='M0 44h64M6 44a26 26 0 0 1 52 0M32 18v-7M25 11h14'/%3E%3Ccircle cx='32' cy='8' r='2'/%3E%3C/g%3E%3Cg transform='translate(150 30) rotate(18)'%3E%3Ccircle cx='10' cy='10' r='9'/%3E%3Cpath d='M19 10h34M44 10v8M50 10v6'/%3E%3Cpath d='M53 4l16 0 8 6-8 6-16 0z'/%3E%3Ccircle cx='60' cy='10' r='1.6'/%3E%3C/g%3E%3Cg transform='translate(285 25) rotate(6)'%3E%3Cpath d='M0 0h40L20 24v22M8 46h24M30 -6l-8 18'/%3E%3Ccircle cx='34' cy='-8' r='5'/%3E%3C/g%3E%3Cg transform='translate(40 150) rotate(4)'%3E%3Cpath d='M0 36h66M6 36a27 27 0 0 1 54 0'/%3E%3Ccircle cx='33' cy='6' r='3'/%3E%3C/g%3E%3Cg transform='translate(170 140) rotate(-6)'%3E%3Cpath d='M0 14h36v14a14 14 0 0 1-14 14h-8A14 14 0 0 1 0 28z'/%3E%3Cpath d='M36 18h5a6 6 0 0 1 0 12h-5'/%3E%3Cpath d='M10 8c-4-4 4-6 0-10M22 8c-4-4 4-6 0-10'/%3E%3Cpath d='M-6 46h48'/%3E%3C/g%3E%3Cg transform='translate(280 150) rotate(0)'%3E%3Cpath d='M0 44l18-14 12 8 22-22 14 6'/%3E%3Cpath d='M58 8h12v12'/%3E%3Cpath d='M0 50h72'/%3E%3C/g%3E%3Cg transform='translate(30 270) rotate(0)'%3E%3Cpath d='M0 10v34M0 30h70v14M70 30v-6a8 8 0 0 0-8-8H26v14'/%3E%3Crect x='6' y='18' width='16' height='12' rx='5'/%3E%3C/g%3E%3Cg transform='translate(165 255) rotate(-12)'%3E%3Cpath d='M8 0h28a6 6 0 0 1 6 6v58a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6z'/%3E%3Ccircle cx='22' cy='14' r='7'/%3E%3Cpath d='M12 36h20M12 44h20M12 52h14'/%3E%3C/g%3E%3Cg transform='translate(290 275) rotate(-20)'%3E%3Cpath d='M0 20l60-4-8-6M60 16l-8 6M20 18L12 2h6l14 16M20 19l-8 16h6l14-16'/%3E%3C/g%3E%3Cg transform='translate(110 100) rotate(0)'%3E%3Cpath d='M8 0l2.4 5 5.6.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.6-.8z'/%3E%3C/g%3E%3Cg transform='translate(250 105) rotate(12)'%3E%3Cpath d='M6 0l1.8 3.8 4.2.6-3 2.9.7 4.1L6 9.4 2.3 11.4l.7-4.1-3-2.9 4.2-.6z'/%3E%3C/g%3E%3Cg transform='translate(110 210) rotate(10)'%3E%3Cpath d='M0 0v12a5 5 0 0 0 10 0V0M5 0v44M24 0c-6 6-6 18 0 22v22'/%3E%3C/g%3E%3Cg transform='translate(245 215) rotate(0)'%3E%3Cpath d='M12 34S0 20 0 12a12 12 0 0 1 24 0c0 8-12 22-12 22z'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3C/g%3E%3Cg transform='translate(110 330) rotate(0)'%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='14' cy='6' r='1.6'/%3E%3C/g%3E%3Cg transform='translate(350 350) rotate(0)'%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+  radial-gradient(120% 80% at 75% 5%, #F1F7F4 0%, var(--sage) 45%, var(--sage-2) 100%);background-size:380px 380px, 100% 100%;background-attachment:scroll}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;margin-bottom:-100vh;margin-bottom:-100svh;z-index:1}
+.stage::before{content:"";position:absolute;inset:-20%;background:linear-gradient(160deg, transparent 42%, rgba(47,107,100,.10) 42%, rgba(47,107,100,.10) 70%, transparent 70%);pointer-events:none}
+.case-wrap{position:absolute;left:0;top:0;width:760px;height:500px;transform-origin:0 0;will-change:transform}
+
+/* the passport: navy cover with an open visa spread */
+.cover{position:absolute;inset:-14px;border-radius:22px;background:linear-gradient(160deg,#243A5E,#1A2B47);box-shadow:0 40px 80px -28px rgba(20,24,22,.75)}
+.page{position:absolute;top:0;bottom:0;width:370px;background-color:#F2ECDC;overflow:hidden;
+  background-image:
+    repeating-radial-gradient(circle at 50% 120%, rgba(60,90,120,.07) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(115deg, rgba(120,90,60,.05) 0 1px, transparent 1px 14px)}
+.page.l{left:10px;border-radius:12px 2px 2px 12px;box-shadow:inset -26px 0 30px -18px rgba(60,45,25,.35)}
+.page.r{right:10px;border-radius:2px 12px 12px 2px;box-shadow:inset 26px 0 30px -18px rgba(60,45,25,.35)}
+.page .hdr{position:absolute;top:16px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.5em;font-weight:700;color:rgba(40,60,90,.35)}
+.page .pno{position:absolute;bottom:14px;font-size:12px;font-weight:700;color:rgba(40,60,90,.4)}
+.page.l .pno{left:22px}.page.r .pno{right:22px}
+.page .wm{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:220px;height:220px;border-radius:50%;
+  border:2px solid rgba(40,60,90,.06);box-shadow:0 0 0 18px rgba(40,60,90,.03), 0 0 0 40px rgba(40,60,90,.025)}
+.gutter{position:absolute;left:378px;top:0;bottom:0;width:4px;background:rgba(40,30,20,.25)}
+
+/* stamps: ink on paper */
+.stk{position:absolute;transform:translate(-50%,-50%) rotate(var(--r,0deg));transition:transform .5s ease, opacity .5s ease;mix-blend-mode:multiply}
+.stk svg{display:block;width:100%;height:100%;overflow:visible}
+.stk text{font-family:var(--body);font-weight:800;text-transform:uppercase}
+.stk.on{transform:translate(-50%,-50%) rotate(var(--r,0deg)) scale(1.06)}
+.case-wrap.zoomed .stk:not(.on){opacity:.45}
+.case-wrap.zoomed .stk.deco{opacity:.3}
+
+/* hero copy */
+.steps{position:relative;z-index:2}
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;
+  padding:120px 20px 40px}
+.hero-text{display:flex;flex-direction:column;align-items:center;gap:12px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,8vw,104px);line-height:1;color:#1A2B47;letter-spacing:-.01em}
+.hero p{font-size:clamp(17px,2vw,20px);font-weight:700;color:#0F2624;max-width:38ch;line-height:1.5}
+.hero .kick{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:#0F2624}
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:6px;font-size:13px;letter-spacing:.24em;font-weight:800;color:#0F2624}
+.scroll-cue i{display:block;width:2px;height:40px;background:#0F2624;transform-origin:top;animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* résumé steps */
+.resume-title{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,76px);line-height:1;color:var(--ivory);text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.step{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:flex-end;padding:96px 20px}
+.card{width:min(520px,100%);margin-right:max(0px,calc((100vw - 1200px)/2));background:rgba(18,44,42,.95);border-radius:20px;padding:30px 32px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;gap:14px;position:relative;border:1px solid rgba(255,255,255,.06)}
+.card .when{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--brass)}
+.card .when::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 5px rgba(221,181,110,.2)}
+.card h3{font-size:clamp(24px,2.6vw,30px);font-weight:800;line-height:1.2}
+.card .role{color:#E4DFD3;font-weight:600;font-size:16px;margin-top:-6px}
+.card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.card li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:16.5px;color:#F4F0E6}
+.card li::before{content:"";width:12px;height:1px;background:var(--muted);margin-top:13px}
+.card .nums{display:flex;flex-wrap:wrap;gap:8px}
+.card .nums span{font-size:14px;font-weight:700;padding:6px 12px;border-radius:999px;background:rgba(221,181,110,.14);color:var(--brass)}
+.intro-card h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,72px);line-height:1}
+.intro-card p{color:#F4F0E6}
+
+/* ---------- WORKS (horizontal) ---------- */
+.works{position:relative;background-color:var(--char);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380' viewBox='0 0 380 380'%3E%3Cg fill='none' stroke='%239FD1C8' stroke-opacity='0.07' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate(30 40) rotate(-8)'%3E%3Cpath d='M0 44h64M6 44a26 26 0 0 1 52 0M32 18v-7M25 11h14'/%3E%3Ccircle cx='32' cy='8' r='2'/%3E%3C/g%3E%3Cg transform='translate(150 30) rotate(18)'%3E%3Ccircle cx='10' cy='10' r='9'/%3E%3Cpath d='M19 10h34M44 10v8M50 10v6'/%3E%3Cpath d='M53 4l16 0 8 6-8 6-16 0z'/%3E%3Ccircle cx='60' cy='10' r='1.6'/%3E%3C/g%3E%3Cg transform='translate(285 25) rotate(6)'%3E%3Cpath d='M0 0h40L20 24v22M8 46h24M30 -6l-8 18'/%3E%3Ccircle cx='34' cy='-8' r='5'/%3E%3C/g%3E%3Cg transform='translate(40 150) rotate(4)'%3E%3Cpath d='M0 36h66M6 36a27 27 0 0 1 54 0'/%3E%3Ccircle cx='33' cy='6' r='3'/%3E%3C/g%3E%3Cg transform='translate(170 140) rotate(-6)'%3E%3Cpath d='M0 14h36v14a14 14 0 0 1-14 14h-8A14 14 0 0 1 0 28z'/%3E%3Cpath d='M36 18h5a6 6 0 0 1 0 12h-5'/%3E%3Cpath d='M10 8c-4-4 4-6 0-10M22 8c-4-4 4-6 0-10'/%3E%3Cpath d='M-6 46h48'/%3E%3C/g%3E%3Cg transform='translate(280 150) rotate(0)'%3E%3Cpath d='M0 44l18-14 12 8 22-22 14 6'/%3E%3Cpath d='M58 8h12v12'/%3E%3Cpath d='M0 50h72'/%3E%3C/g%3E%3Cg transform='translate(30 270) rotate(0)'%3E%3Cpath d='M0 10v34M0 30h70v14M70 30v-6a8 8 0 0 0-8-8H26v14'/%3E%3Crect x='6' y='18' width='16' height='12' rx='5'/%3E%3C/g%3E%3Cg transform='translate(165 255) rotate(-12)'%3E%3Cpath d='M8 0h28a6 6 0 0 1 6 6v58a6 6 0 0 1-6 6H8a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6z'/%3E%3Ccircle cx='22' cy='14' r='7'/%3E%3Cpath d='M12 36h20M12 44h20M12 52h14'/%3E%3C/g%3E%3Cg transform='translate(290 275) rotate(-20)'%3E%3Cpath d='M0 20l60-4-8-6M60 16l-8 6M20 18L12 2h6l14 16M20 19l-8 16h6l14-16'/%3E%3C/g%3E%3Cg transform='translate(110 100) rotate(0)'%3E%3Cpath d='M8 0l2.4 5 5.6.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.6-.8z'/%3E%3C/g%3E%3Cg transform='translate(250 105) rotate(12)'%3E%3Cpath d='M6 0l1.8 3.8 4.2.6-3 2.9.7 4.1L6 9.4 2.3 11.4l.7-4.1-3-2.9 4.2-.6z'/%3E%3C/g%3E%3Cg transform='translate(110 210) rotate(10)'%3E%3Cpath d='M0 0v12a5 5 0 0 0 10 0V0M5 0v44M24 0c-6 6-6 18 0 22v22'/%3E%3C/g%3E%3Cg transform='translate(245 215) rotate(0)'%3E%3Cpath d='M12 34S0 20 0 12a12 12 0 0 1 24 0c0 8-12 22-12 22z'/%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3C/g%3E%3Cg transform='translate(110 330) rotate(0)'%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3Ccircle cx='14' cy='6' r='1.6'/%3E%3C/g%3E%3Cg transform='translate(350 350) rotate(0)'%3E%3Ccircle cx='0' cy='0' r='1.6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");background-size:380px 380px}
+.works-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.works-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:92px 40px 18px;max-width:100%}
+.works-head h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,76px);line-height:1}
+.works-head p{color:var(--muted);font-size:15px;max-width:36ch;text-align:right}
+.track{display:flex;flex:1;min-height:0;will-change:transform}
+.panel{flex:0 0 min(78vw,1000px);border-left:1px solid var(--line);padding:22px 40px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr;gap:10px 40px}
+.panel .ph{grid-column:1/-1;display:flex;flex-direction:column;gap:4px}
+.panel .num{font-size:13px;letter-spacing:.24em;color:var(--muted);font-weight:700}
+.panel h3{font-size:clamp(34px,4.4vw,58px);font-weight:800;line-height:1.05;letter-spacing:-.01em}
+.panel .sub{color:var(--muted);font-weight:600;font-size:15px}
+.chart{align-self:center;background:var(--char-2);border-radius:18px;padding:18px 18px 12px;border:1px solid var(--line)}
+.chart figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.chart svg{display:block;width:100%;height:auto}
+.rows{align-self:end;display:flex;flex-direction:column}
+.row{display:flex;flex-direction:column;gap:4px;padding:16px 0;border-top:1px solid var(--line);text-decoration:none}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row .t{font-size:19px;font-weight:700;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.row .t em{font-style:normal;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);white-space:nowrap}
+.row .m{font-size:16px;color:#EDE8DC}
+.row .m strong{color:var(--brass)}
+a.row:hover .t span{text-decoration:underline;text-underline-offset:4px}
+.panel.text-only{grid-template-columns:minmax(0,1fr)}
+.panel.text-only .rows{max-width:640px}
+.hprogress{height:2px;background:var(--line);margin:0 40px 22px;position:relative}
+.hprogress i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--brass)}
+.keep{position:absolute;right:40px;bottom:34px;font-size:12px;letter-spacing:.24em;font-weight:700;color:var(--muted)}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--char);padding:96px 40px 80px;border-top:1px solid var(--line)}
+.contact-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:end}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,80px);line-height:1}
+.contact p{color:#EDE8DC;max-width:52ch;margin-top:18px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tools span{font-size:14px;font-weight:600;padding:7px 13px;border:1px solid #3F6A65;border-radius:999px;color:#F4F0E6}
+.reach{display:flex;flex-direction:column}
+.reach > *{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px;border-top:1px solid var(--line);font-size:17px}
+.reach > *:last-child{border-bottom:1px solid var(--line)}
+.reach .lbl{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.reach a{text-decoration:none}.reach a:hover .v{text-decoration:underline;text-underline-offset:4px}
+.copy{font:inherit;font-size:13px;font-weight:700;color:var(--char);background:var(--brass);border:0;border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer}
+.foot{max-width:1200px;margin:56px auto 0;font-size:13px;color:var(--muted)}
+
+/* ---------- small screens ---------- */
+@media (max-width:760px){
+  body{font-size:16px}
+  .bar{padding-left:12px;padding-right:12px}
+  .bar .who span{display:none}
+  .pill{padding:0 12px;font-size:13px}
+  .step{align-items:flex-end;justify-content:center;padding:0 16px 40px}
+  .card{padding:22px 20px;margin-right:0}
+  .works-pin{position:relative;height:auto;overflow:visible}
+  .works-head{padding:72px 16px 18px;flex-direction:column;align-items:flex-start}
+  .works-head p{text-align:left}
+  .track{flex-direction:column;transform:none!important}
+  .panel{flex:none;border-left:0;border-top:1px solid var(--line);grid-template-columns:minmax(0,1fr);padding:28px 16px 36px;gap:18px}
+  .hprogress,.keep{display:none}
+  .contact{padding:72px 16px 64px}
+  .contact-in{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-height:680px){
+  .hero{padding-bottom:20px}
+  .hero-text{gap:6px}
+  .hero h1{font-size:clamp(36px,6vw,60px)}
+  .hero p{font-size:16px;max-width:46ch}
+  .scroll-cue i{height:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .scroll-cue i{animation:none}
+  .stk{transition:none}
+  .works-pin{position:relative;height:auto;overflow:visible}
+  .track{flex-direction:column;transform:none!important}
+  .panel{flex:none;border-left:0;border-top:1px solid var(--line)}
+  .hprogress,.keep{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="who"><b>Deepanshi Behal</b><span>Revenue &amp; Hospitality Analytics</span></div>
+  <nav aria-label="Links">
+    <a class="pill" href="#works">Works</a>
+    <a class="pill" href="https://github.com/behaldeepanshi01-gif">GitHub</a>
+    <a class="pill" href="https://linkedin.com/in/bdeepanshi">LinkedIn</a>
+  </nav>
+</header>
+
+<main>
+<section class="journey" id="journey" aria-label="Journey">
+  <div class="stage" id="stage" aria-hidden="true">
+    <div class="case-wrap" id="caseWrap">
+      <div class="cover"></div>
+      <div class="page l"><div class="wm"></div><div class="hdr">VISAS</div><div class="pno">14</div></div>
+      <div class="page r"><div class="wm"></div><div class="hdr">VISAS</div><div class="pno">15</div></div>
+      <div class="gutter"></div>
+      <div id="stamps"></div>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="hero step-anchor" data-focus="all">
+      <div class="hero-text" id="heroText">
+      <div class="kick">Falls Church, VA · Open to relocation</div>
+      <h1>Deepanshi Behal</h1>
+      <p>I turn hotel data into pricing and revenue decisions. Every stamp in this passport is a stop on the way.</p>
+      <div class="scroll-cue">SCROLL<i></i></div>
+      </div>
+    </div>
+
+    <div class="step step-anchor" data-focus="all-soft">
+      <div class="card intro-card">
+        <h2>Résumé</h2>
+        <p>Seven years across hotel operations, revenue reporting and analytics, in India and the US. Keep scrolling and the passport will walk you through each stop.</p>
+      </div>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-ihm">
+      <article class="card">
+        <div class="when">UNTIL 2018</div>
+        <h3>Institute of Hotel Management, Kurukshetra</h3>
+        <div class="role">B.S. Hospitality &amp; Hotel Administration · GPA 3.60</div>
+        <ul><li>Where it started: front office, F&amp;B and rooms division, learned from the floor up.</li></ul>
+      </article>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-rad">
+      <article class="card">
+        <div class="when">2018 – 2019</div>
+        <h3>Radisson Blu, New Delhi</h3>
+        <div class="role">F&amp;B Revenue &amp; Guest Analytics Associate · 5-star, 235 rooms</div>
+        <ul>
+          <li>Read F&amp;B and room demand data closely enough to reshape pricing decisions.</li>
+          <li>Part of the team behind a 40% lift in room revenue and 80% growth in monthly loyalty enrollment.</li>
+        </ul>
+        <div class="nums"><span>+40% room revenue</span><span>+80% loyalty sign-ups</span><span>Employee of the Year 2019</span></div>
+      </article>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-fr">
+      <article class="card">
+        <div class="when">2018 – 2021</div>
+        <h3>Alliance Française de Delhi</h3>
+        <div class="role">French language · B2</div>
+        <ul>
+          <li>Studied French alongside full-time hotel work, level by level from A1 up to B2.</li>
+          <li>Comfortable working with French-speaking guests and teams, and open to roles in Canada and Europe.</li>
+        </ul>
+        <div class="nums"><span>French B2</span><span>English fluent</span></div>
+      </article>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-vt">
+      <article class="card">
+        <div class="when">2021 – 2024</div>
+        <h3>Virginia Tech</h3>
+        <div class="role">MBA, Business Analytics &amp; Operations Management · GPA 3.60<br>Data Analyst &amp; Reporting Specialist</div>
+        <ul>
+          <li>Built the reporting across MicroStrategy BI and Banner ERP that 500+ users relied on.</li>
+          <li>Managed data integrations across 25+ concurrent projects and standardized dashboards for 4 departments.</li>
+        </ul>
+        <div class="nums"><span>500+ users</span><span>25+ projects</span><span>4 departments</span></div>
+      </article>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-con">
+      <article class="card">
+        <div class="when">2024 – 2025</div>
+        <h3>Conrad Washington DC</h3>
+        <div class="role">Management Development Program · 360-room luxury</div>
+        <ul>
+          <li>Built the daily view of ADR and 16+ revenue streams that leadership acted on every morning.</li>
+          <li>Reconciled OnQ against Agilysys and found a stale pricing table quietly costing $8,000 a month.</li>
+          <li>Built ROI models for three F&amp;B and revenue decisions, putting $150K+ of investment to work.</li>
+        </ul>
+        <div class="nums"><span>$8K/month recovered</span><span>$150K+ investment</span><span>16+ revenue streams</span></div>
+      </article>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-bun">
+      <article class="card">
+        <div class="when">2025</div>
+        <h3>Bungalow, New York City</h3>
+        <div class="role">Customer Analytics Analyst</div>
+        <ul>
+          <li>Analyzed 500+ monthly guest data points and found engagement rising while satisfaction slipped.</li>
+          <li>Drove the fix that lifted satisfaction scores 22%.</li>
+        </ul>
+        <div class="nums"><span>+22% satisfaction</span></div>
+      </article>
+    </div>
+
+    <div class="step step-anchor" data-focus="st-mcd">
+      <article class="card">
+        <div class="when">2025 – NOW</div>
+        <h3>McDaniel College</h3>
+        <div class="role">M.S. Data Analytics, AI concentration · expected Dec 2027</div>
+        <ul>
+          <li>Building SQL, Tableau, Power BI, R and Python work on real hotel questions.</li>
+          <li>Learning now: demand forecasting with booking pace and pickup by segment.</li>
+        </ul>
+        <div class="nums"><span>Revenue Analyst · Revenue Management roles</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="works" aria-label="Works">
+  <div class="works-pin" id="worksPin">
+    <div class="works-head">
+      <h2>Works</h2>
+      <p>Dashboards and projects built on hotel booking, review and operations data.</p>
+    </div>
+    <div class="track" id="track">
+
+      <article class="panel">
+        <div class="ph"><span class="num">01</span><h3>Dashboards</h3><span class="sub">Tableau · Power BI · 119,390 real hotel bookings</span></div>
+        <figure class="chart" style="margin:0">
+          <svg id="chartLead" viewBox="0 0 420 230" role="img" aria-label="Cancellation rate rises with lead time: 9.6% at 0 to 7 days, 57% at 180 plus days"></svg>
+          <figcaption>Cancellation rate by booking lead time (days)</figcaption>
+        </figure>
+        <div class="rows">
+          <div class="row"><div class="t"><span>Cancellation &amp; Revenue Risk</span><em>Tableau</em></div><div class="m"><strong>$16.7M</strong> lost to cancellations, 39% of booked revenue. OTAs drove $10.2M of it.</div></div>
+          <div class="row"><div class="t"><span>Hotel Revenue Management</span><em>Power BI · DAX</em></div><div class="m">ADR, RevPAR and occupancy KPIs. <strong>~37%</strong> cancel rate, and Direct earns a higher ADR than OTAs.</div></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="ph"><span class="num">02</span><h3>Revenue &amp; guests</h3><span class="sub">R · ETL · star schema · text analytics</span></div>
+        <figure class="chart" style="margin:0">
+          <svg id="chartRevpar" viewBox="0 0 420 230" role="img" aria-label="Monthly RevPAR from 82 dollars in January to 214 dollars in April"></svg>
+          <figcaption>Monthly RevPAR, 250-room DC hotel (simulated data)</figcaption>
+        </figure>
+        <div class="rows">
+          <a class="row" href="https://github.com/behaldeepanshi01-gif/hotel-revenue-analytics"><div class="t"><span>Hotel Revenue Analytics Pipeline</span><em>GitHub ↗</em></div><div class="m">RevPAR <strong>$83 → $214</strong> from January to April. OTAs cancel 17.5% vs 8.7% for direct.</div></a>
+          <a class="row" href="https://github.com/behaldeepanshi01-gif/hotel-guest-analytics"><div class="t"><span>Guest Satisfaction &amp; Reviews</span><em>GitHub ↗</em></div><div class="m"><strong>2,000 reviews</strong>, sentiment and NPS. F&amp;B scored lowest; channel and response speed tested and ruled out.</div></a>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="ph"><span class="num">03</span><h3>Operations analytics</h3><span class="sub">Python · SQL · SciPy</span></div>
+        <figure class="chart" style="margin:0">
+          <svg id="chartCost" viewBox="0 0 420 230" role="img" aria-label="Cost per attendee by channel, from 1.40 dollars direct to 49.26 dollars LinkedIn ads"></svg>
+          <figcaption>Cost per attendee by channel, USD (simulated data)</figcaption>
+        </figure>
+        <div class="rows">
+          <a class="row" href="https://github.com/behaldeepanshi01-gif/event-registration-analytics"><div class="t"><span>Event Registration &amp; Attendance</span><em>GitHub ↗</em></div><div class="m"><strong>$1.40 vs $49.26</strong> per attendee. Last-minute sign-ups attend 53.5% vs 69.1% early.</div></a>
+          <a class="row" href="https://github.com/behaldeepanshi01-gif/student-services-analytics"><div class="t"><span>Student Services Operations</span><em>GitHub ↗</em></div><div class="m">First-contact resolution lifts satisfaction <strong>3.65 → 4.20</strong> (p &lt; 0.05).</div></a>
+        </div>
+      </article>
+
+      <article class="panel text-only">
+        <div class="ph"><span class="num">04</span><h3>Independent builds</h3><span class="sub">SQL · Tableau · research</span></div>
+        <div class="rows">
+          <div class="row"><div class="t"><span>Ancillary Revenue Optimization</span><em>SQL · Tableau</em></div><div class="m">Resort fees, upsells and packages against occupancy and seasonality.</div></div>
+          <div class="row"><div class="t"><span>No-Show Revenue Recovery</span><em>SQL · Tableau</em></div><div class="m">No-shows by channel and lead time, and what tighter policies would recover.</div></div>
+          <div class="row"><div class="t"><span>F&amp;B Revenue Analysis</span><em>SQL · Tableau</em></div><div class="m">Covers, average check and daypart, to show where menu and staffing shifts pay off.</div></div>
+          <div class="row"><div class="t"><span>Marriott Brand Differentiation</span><em>Research · in progress</em></div><div class="m">Guest reviews across luxury and premium tiers, measured against brand positioning.</div></div>
+        </div>
+      </article>
+
+    </div>
+    <div class="hprogress" aria-hidden="true"><i id="hbar"></i></div>
+    <div class="keep" aria-hidden="true">KEEP SCROLLING</div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-label="Contact">
+  <div class="contact-in">
+    <div>
+      <h2>Let's talk revenue.</h2>
+      <p>I'm open to Revenue Analyst and Revenue Management roles, in the US or abroad. Hotel leadership is the long-term goal.</p>
+      <div class="tools">
+        <span>SQL</span><span>Tableau</span><span>Power BI</span><span>R</span><span>Python</span><span>Advanced Excel</span><span>OnQ (PMS)</span><span>Agilysys (POS)</span><span>Salesforce CRM</span><span>French B2</span>
+      </div>
+    </div>
+    <div class="reach">
+      <div><span class="lbl">Email</span><span class="v" id="mail">behaldeepanshi01@gmail.com</span><button class="copy" id="copyBtn" type="button">Copy</button></div>
+      <div><span class="lbl">Phone</span><span class="v">(571) 461-9966</span></div>
+      <a href="https://linkedin.com/in/bdeepanshi"><span class="lbl">LinkedIn</span><span class="v">linkedin.com/in/bdeepanshi ↗</span></a>
+      <a href="https://github.com/behaldeepanshi01-gif"><span class="lbl">GitHub</span><span class="v">behaldeepanshi01-gif ↗</span></a>
+    </div>
+  </div>
+  <div class="foot">Deepanshi Behal · Falls Church, VA</div>
+</section>
+</main>
+
+<script>
+(function(){
+
+  /* ---------- passport stamps ---------- */
+  const STAMPS=[
+    {id:'st-ihm',kind:'circle',x:140,y:145,d:172,r:-12,c:'#5B3F8C',top:'INSTITUTE OF HOTEL MGMT',bot:'KURUKSHETRA · INDIA',big:'IHM',small:'GRAD 2018'},
+    {id:'st-rad',kind:'rect',x:236,y:318,w:214,h:112,r:7,c:'#A8323A',lines:['RADISSON BLU','NEW DELHI · INDIA','2018 – 2019']},
+    {id:'st-vt',kind:'oval',x:512,y:108,w:212,h:116,r:-6,c:'#7A2E3A',lines:['VIRGINIA TECH','MBA · ANALYTICS','2021 – 2024']},
+    {id:'st-con',kind:'circle',x:652,y:232,d:162,r:10,c:'#244C8A',top:'CONRAD · WASHINGTON',bot:'DC · USA',big:'DC',small:'2024 – 25'},
+    {id:'st-bun',kind:'rect',x:482,y:338,w:176,h:96,r:-8,c:'#2E6A45',lines:['BUNGALOW','NEW YORK CITY','2025']},
+    {id:'st-mcd',kind:'circle',x:642,y:412,d:136,r:-14,c:'#1F5E6B',top:'McDANIEL COLLEGE',bot:'M.S. DATA ANALYTICS',big:'2025',small:'→ 2027'},
+    {id:'st-adr',kind:'rect',deco:1,x:292,y:112,w:96,h:44,r:-10,c:'#2E6A45',lines:['ADR ✓']},
+    {id:'st-fr',kind:'circle',x:96,y:414,d:118,r:12,c:'#244C8A',top:'ALLIANCE FRANÇAISE',bot:'DELHI · FRANÇAIS',big:'B2',small:'2018 – 21'},
+    {id:'st-rev',kind:'rect',deco:1,x:286,y:440,w:124,h:44,r:6,c:'#5B3F8C',lines:['RevPAR ↑']},
+    {id:'st-iad',kind:'rect',deco:1,x:470,y:448,w:150,h:50,r:4,c:'#A8323A',lines:['ADMITTED · IAD']}
+  ];
+  function stampSVG(d){
+    const c=d.c;
+    if(d.kind==='circle'){
+      const u=d.id;
+      return `<svg viewBox="0 0 200 200"><defs>
+        <path id="t-${u}" d="M 30,100 A 70,70 0 0 1 170,100"/>
+        <path id="b-${u}" d="M 22,100 A 78,78 0 0 0 178,100"/></defs>
+        <circle cx="100" cy="100" r="95" fill="none" stroke="${c}" stroke-width="5"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="${c}" stroke-width="2"/>
+        <circle cx="100" cy="100" r="52" fill="none" stroke="${c}" stroke-width="2"/>
+        <text fill="${c}" font-size="15" letter-spacing="1.5"><textPath href="#t-${u}" startOffset="50%" text-anchor="middle">${d.top}</textPath></text>
+        <text fill="${c}" font-size="14" letter-spacing="1.5"><textPath href="#b-${u}" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">${d.bot}</textPath></text>
+        <text x="100" y="${d.small?106:114}" fill="${c}" font-size="${d.big.length>3?30:38}" text-anchor="middle">${d.big}</text>
+        ${d.small?`<text x="100" y="130" fill="${c}" font-size="13" text-anchor="middle" letter-spacing="1">${d.small}</text>`:''}
+      </svg>`;
+    }
+    const w=d.w,h=d.h,n=d.lines.length, big=d.deco?18:Math.min(24,w/9), sm=d.deco?0:13;
+    const shape = d.kind==='oval'
+      ? `<ellipse cx="${w/2}" cy="${h/2}" rx="${w/2-3}" ry="${h/2-3}" fill="none" stroke="${c}" stroke-width="4"/><ellipse cx="${w/2}" cy="${h/2}" rx="${w/2-10}" ry="${h/2-10}" fill="none" stroke="${c}" stroke-width="1.5"/>`
+      : `<rect x="2" y="2" width="${w-4}" height="${h-4}" rx="8" fill="none" stroke="${c}" stroke-width="4"/>${d.deco?'':`<rect x="9" y="9" width="${w-18}" height="${h-18}" rx="4" fill="none" stroke="${c}" stroke-width="1.5"/>`}`;
+    let t='';
+    if(n===1){ t=`<text x="${w/2}" y="${h/2+big*0.36}" fill="${c}" font-size="${big}" text-anchor="middle" letter-spacing="1">${d.lines[0]}</text>`; }
+    else {
+      const gap=big*0.95; const y0=h/2 - gap*0.55;
+      t=`<text x="${w/2}" y="${y0+big*0.36}" fill="${c}" font-size="${big}" text-anchor="middle" letter-spacing="1">${d.lines[0]}</text>`;
+      d.lines.slice(1).forEach((l,i)=>{ t+=`<text x="${w/2}" y="${y0+big*0.36+gap*0.9+(i)*(sm+5)}" fill="${c}" font-size="${sm}" text-anchor="middle" letter-spacing="1.5">${l}</text>`;});
+    }
+    return `<svg viewBox="0 0 ${w} ${h}">${shape}${t}</svg>`;
+  }
+  (function(){
+    const host=document.getElementById('stamps');
+    STAMPS.forEach(d=>{
+      const el=document.createElement('div');
+      el.className='stk'+(d.deco?' deco':''); el.id=d.id;
+      const w=d.kind==='circle'?d.d:d.w, h=d.kind==='circle'?d.d:d.h;
+      el.style.cssText=`left:${d.x}px;top:${d.y}px;width:${w}px;height:${h}px;--r:${d.r}deg`;
+      el.innerHTML=stampSVG(d); host.appendChild(el);
+    });
+  })();
+
+  /* ---------- charts (one scale per chart) ---------- */
+  const C = {brass:'#DDB56E', text:'#D6D0C2', grid:'#39403C', ivory:'#F4F0E6'};
+  function bars(id, labels, vals, max, fmt){
+    const svg = document.getElementById(id); if(!svg) return;
+    const L=36,R=10,T=18,B=34,W=420,H=230, iw=W-L-R, ih=H-T-B, n=vals.length, bw=iw/n*0.62;
+    let s='';
+    [0,max/2,max].forEach(g=>{const y=T+ih-(g/max)*ih; s+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="${C.grid}" stroke-width="1"/><text x="${L-6}" y="${y+4}" fill="${C.text}" font-size="11" text-anchor="end">${fmt(g)}</text>`;});
+    vals.forEach((v,i)=>{const cx=L+iw/n*(i+.5), h=(v/max)*ih, y=T+ih-h;
+      s+=`<rect x="${cx-bw/2}" y="${y}" width="${bw}" height="${h}" rx="3" fill="${C.brass}"/>`;
+      s+=`<text x="${cx}" y="${y-6}" fill="${C.ivory}" font-size="12" font-weight="700" text-anchor="middle">${fmt(v)}</text>`;
+      s+=`<text x="${cx}" y="${H-12}" fill="${C.text}" font-size="12" text-anchor="middle">${labels[i]}</text>`;});
+    svg.innerHTML=s;
+  }
+  function line(id, labels, vals, max, fmt){
+    const svg=document.getElementById(id); if(!svg) return;
+    const L=36,R=14,T=18,B=34,W=420,H=230, iw=W-L-R, ih=H-T-B, n=vals.length;
+    const x=i=>L+iw*(i/(n-1)), y=v=>T+ih-(v/max)*ih;
+    let s='';
+    [0,max/2,max].forEach(g=>{s+=`<line x1="${L}" x2="${W-R}" y1="${y(g)}" y2="${y(g)}" stroke="${C.grid}"/><text x="${L-6}" y="${y(g)+4}" fill="${C.text}" font-size="11" text-anchor="end">${fmt(g)}</text>`;});
+    const pts=vals.map((v,i)=>`${x(i)},${y(v)}`).join(' ');
+    s+=`<polygon points="${x(0)},${y(0)} ${pts} ${x(n-1)},${y(0)}" fill="${C.brass}" fill-opacity=".14"/>`;
+    s+=`<polyline points="${pts}" fill="none" stroke="${C.brass}" stroke-width="2.5" stroke-linejoin="round"/>`;
+    vals.forEach((v,i)=>{ s+=`<text x="${x(i)}" y="${H-12}" fill="${C.text}" font-size="11" text-anchor="middle">${labels[i]}</text>`;});
+    const pk=vals.indexOf(Math.max(...vals)), lo=0;
+    [[pk,'$'+Math.round(vals[pk])],[lo,'$'+Math.round(vals[lo])]].forEach(([i,t])=>{
+      s+=`<circle cx="${x(i)}" cy="${y(vals[i])}" r="4.5" fill="${C.ivory}"/><text x="${x(i)+(i===0?8:0)}" y="${y(vals[i])-10}" fill="${C.ivory}" font-size="12" font-weight="700" text-anchor="${i===0?'start':'middle'}">${t}</text>`;});
+    svg.innerHTML=s;
+  }
+  bars('chartLead',['0–7','8–30','31–90','91–180','180+'],[9.6,27.9,37.7,44.7,57.0],60,v=>Math.round(v)+'%');
+  line('chartRevpar',['J','F','M','A','M','J','J','A','S','O','N','D'],[82.5,109,149,214,175,135,106,113,147,181,153,84.8],240,v=>'$'+Math.round(v));
+  bars('chartCost',['Direct','Referral','Email','Social','Search','LinkedIn'],[1.40,1.93,7.23,32.07,33.02,49.26],50,v=>'$'+(v<10&&v>0?v.toFixed(2):Math.round(v)));
+
+  /* ---------- copy email ---------- */
+  const cb=document.getElementById('copyBtn');
+  cb.addEventListener('click',()=>{
+    const t=document.getElementById('mail').textContent;
+    const done=()=>{cb.textContent='Copied';setTimeout(()=>cb.textContent='Copy',1600)};
+    try{ navigator.clipboard.writeText(t).then(done,()=>sel()); }catch(e){ sel(); }
+    function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected';}
+  });
+
+  /* ---------- suitcase zoom on scroll ---------- */
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stage=document.getElementById('stage'), wrap=document.getElementById('caseWrap');
+  const anchors=[...document.querySelectorAll('.step-anchor')];
+  const CW=760, CH=500;
+  let W=0,H=0,base=1,mobile=false,heroTextH=0;
+  const heroText=document.getElementById('heroText');
+  const cur={x:0,y:0,s:1}; let first=true;
+
+  function measure(){ W=stage.clientWidth; H=stage.clientHeight; mobile=W<=760; heroTextH=heroText?heroText.offsetHeight:0;
+    base=Math.min(W*0.84/CW, H*(mobile?0.5:0.6)/CH); }
+  function targetFor(focus){
+    if(focus==='all'){
+      const top=80, bottom=(H<=680?20:40)+heroTextH+16;             // space between top bar and hero text
+      const avail=Math.max(60, H-top-bottom);
+      let sc=Math.min(base*0.78, avail/(CH+28), (W*0.9)/(CW+28)); sc=Math.max(sc,0.12);
+      return {s:sc, x:(W-sc*CW)/2, y:top+14*sc + Math.max(0,(avail-sc*(CH+28))/2)};
+    }
+    if(focus==='all-soft'){ const s=base*(mobile?1:0.95); const fx=mobile?0.5:0.3; return {s, x:W*fx-s*CW/2, y:(H-s*CH)/2 - (mobile?H*0.16:0)}; }
+    const el=document.getElementById(focus);
+    const px=parseFloat(el.style.left||getComputedStyle(el).left), py=parseFloat(getComputedStyle(el).top);
+    const s=base*(mobile?2.1:2.4);
+    const fx=mobile?0.5:0.3, fy=mobile?0.3:0.5;
+    return {s, x:W*fx - s*px, y:H*fy - s*py};
+  }
+  let active=null;
+  function desired(){
+    const mid=innerHeight*0.5; let i=0;
+    for(let k=0;k<anchors.length;k++){ if(anchors[k].getBoundingClientRect().top<=mid) i=k; }
+    const r=anchors[i].getBoundingClientRect();
+    const t=Math.min(1,Math.max(0,(mid-r.top)/r.height));
+    const a=targetFor(anchors[i].dataset.focus);
+    const nxt=anchors[i+1];
+    let out=a;
+    if(nxt){ const b=targetFor(nxt.dataset.focus); let u=Math.min(1,Math.max(0,(t-0.55)/0.45)); u=u*u*(3-2*u);
+      out={s:a.s+(b.s-a.s)*u, x:a.x+(b.x-a.x)*u, y:a.y+(b.y-a.y)*u};
+      setActive(u>0.5?nxt.dataset.focus:anchors[i].dataset.focus);
+    } else setActive(anchors[i].dataset.focus);
+    return out;
+  }
+  function setActive(f){ if(f===active) return; active=f;
+    document.querySelectorAll('.stk.on').forEach(e=>e.classList.remove('on'));
+    const el=document.getElementById(f); if(el) el.classList.add('on');
+    wrap.classList.toggle('zoomed', !!el);
+  }
+
+  /* ---------- works horizontal scroll ---------- */
+  const works=document.getElementById('works'), pin=document.getElementById('worksPin'), track=document.getElementById('track'), hbar=document.getElementById('hbar');
+  function horizontalOn(){ return !reduce && innerWidth>760; }
+  function sizeWorks(){
+    if(!horizontalOn()){ works.style.height=''; track.style.transform=''; return; }
+    const extra=Math.max(0, track.scrollWidth - pin.clientWidth);
+    works.style.height=(innerHeight + extra)+'px';
+  }
+  function updWorks(){
+    if(!horizontalOn()) return;
+    const r=works.getBoundingClientRect(); const span=works.offsetHeight-innerHeight;
+    const p=span>0?Math.min(1,Math.max(0,-r.top/span)):0;
+    const extra=Math.max(0, track.scrollWidth - pin.clientWidth);
+    track.style.transform=`translate3d(${-p*extra}px,0,0)`;
+    hbar.style.width=(p*100)+'%';
+  }
+
+  function frame(){
+    const d=desired();
+    if(first||reduce){ Object.assign(cur,d); first=false; }
+    else { cur.x+=(d.x-cur.x)*0.14; cur.y+=(d.y-cur.y)*0.14; cur.s+=(d.s-cur.s)*0.14; }
+    wrap.style.transform=`translate3d(${cur.x}px,${cur.y}px,0) scale(${cur.s})`;
+    updWorks();
+    requestAnimationFrame(frame);
+  }
+  function resize(){ measure(); sizeWorks(); }
+  addEventListener('resize',resize);
+  resize(); frame();
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(resize);
+})();
+</script>
+
+</body>
+</html>
