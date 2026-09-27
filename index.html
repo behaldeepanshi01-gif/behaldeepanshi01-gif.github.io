@@ -245,6 +245,19 @@ a.row:hover .t span{text-decoration:underline;text-underline-offset:4px}
       </article>
     </div>
 
+    <div class="step step-anchor" data-focus="st-fr">
+      <article class="card">
+        <div class="when">2018 – 2021</div>
+        <h3>Alliance Française de Delhi</h3>
+        <div class="role">French language · B2</div>
+        <ul>
+          <li>Studied French alongside full-time hotel work, level by level from A1 up to B2.</li>
+          <li>Comfortable working with French-speaking guests and teams, and open to roles in Canada and Europe.</li>
+        </ul>
+        <div class="nums"><span>French B2</span><span>English fluent</span></div>
+      </article>
+    </div>
+
     <div class="step step-anchor" data-focus="st-vt">
       <article class="card">
         <div class="when">2021 – 2024</div>
@@ -264,11 +277,11 @@ a.row:hover .t span{text-decoration:underline;text-underline-offset:4px}
         <h3>Conrad Washington DC</h3>
         <div class="role">Management Development Program · 360-room luxury</div>
         <ul>
-          <li>Built the daily view of ADR and 16+ revenue streams that leadership acted on every morning.</li>
+          <li>Built the daily revenue report leadership used to track F&amp;B revenue and ADR, so they could act the same day.</li>
           <li>Reconciled OnQ against Agilysys and found a stale pricing table quietly costing $8,000 a month.</li>
           <li>Built ROI models for three F&amp;B and revenue decisions, putting $150K+ of investment to work.</li>
         </ul>
-        <div class="nums"><span>$8K/month recovered</span><span>$150K+ investment</span><span>16+ revenue streams</span></div>
+        <div class="nums"><span>$8K/month recovered</span><span>$150K+ investment</span><span>16+ events a quarter</span></div>
       </article>
     </div>
 
@@ -315,6 +328,7 @@ a.row:hover .t span{text-decoration:underline;text-underline-offset:4px}
           <figcaption>Cancellation rate by booking lead time (days)</figcaption>
         </figure>
         <div class="rows">
+          <a class="row" href="https://public.tableau.com/app/profile/deepanshi.behal5790/viz/HotelChannelValueGrossvsNetperBooking/ChannelValue" target="_blank" rel="noopener"><div class="t"><span>Channel Value: Gross vs Net</span><em>Tableau ↗</em></div><div class="m">OTA bookings look biggest at $424, but keep <strong>$206</strong> after cancellations and commission. Direct keeps <strong>$325</strong>.</div></a>
           <div class="row"><div class="t"><span>Cancellation &amp; Revenue Risk</span><em>Tableau</em></div><div class="m"><strong>$16.7M</strong> lost to cancellations, 39% of booked revenue. OTAs drove $10.2M of it.</div></div>
           <div class="row"><div class="t"><span>Hotel Revenue Management</span><em>Power BI · DAX</em></div><div class="m">ADR, RevPAR and occupancy KPIs. <strong>~37%</strong> cancel rate, and Direct earns a higher ADR than OTAs.</div></div>
         </div>
@@ -392,9 +406,8 @@ a.row:hover .t span{text-decoration:underline;text-underline-offset:4px}
     {id:'st-bun',kind:'rect',x:482,y:338,w:176,h:96,r:-8,c:'#2E6A45',lines:['BUNGALOW','NEW YORK CITY','2025']},
     {id:'st-mcd',kind:'circle',x:642,y:412,d:136,r:-14,c:'#1F5E6B',top:'McDANIEL COLLEGE',bot:'M.S. DATA ANALYTICS',big:'2025',small:'→ 2027'},
     {id:'st-adr',kind:'rect',deco:1,x:292,y:112,w:96,h:44,r:-10,c:'#2E6A45',lines:['ADR ✓']},
-    {id:'st-fr',kind:'circle',deco:1,x:92,y:420,d:84,r:12,c:'#244C8A',top:'FRANÇAIS',bot:'NIVEAU',big:'B2',small:''},
+    {id:'st-fr',kind:'circle',x:96,y:414,d:118,r:12,c:'#244C8A',top:'ALLIANCE FRANÇAISE',bot:'DELHI · FRANÇAIS',big:'B2',small:'2018 – 21'},
     {id:'st-rev',kind:'rect',deco:1,x:286,y:440,w:124,h:44,r:6,c:'#5B3F8C',lines:['RevPAR ↑']},
-    {id:'st-sql',kind:'rect',deco:1,x:470,y:212,w:104,h:40,r:-4,c:'#333333',lines:['SELECT *']},
     {id:'st-iad',kind:'rect',deco:1,x:470,y:448,w:150,h:50,r:4,c:'#A8323A',lines:['ADMITTED · IAD']}
   ];
   function stampSVG(d){
@@ -555,5 +568,6 @@ a.row:hover .t span{text-decoration:underline;text-underline-offset:4px}
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(resize);
 })();
 </script>
+
 </body>
 </html>
